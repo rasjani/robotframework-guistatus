@@ -1,0 +1,5 @@
+pillow
+requests
+flask
+flask_restful
+gevent
