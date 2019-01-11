@@ -206,3 +206,6 @@ dist/
 
 # virtualenv v
 venv/
+
+# rest
+*.egg-info/
