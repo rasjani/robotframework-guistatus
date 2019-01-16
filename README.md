@@ -3,11 +3,11 @@ GuiStatus for Robot Framework
 
 ## Installation
 
-pip install -r requirements.txt
+`pip install -r requirements.txt`
 
 ## Demo
 
-robot --pythonpath src/GuiStatus --listener GuiStatusListener test.robot
+`robot --pythonpath src/GuiStatus --listener GuiStatusListener test.robot`
 
 ## Additional information
 
