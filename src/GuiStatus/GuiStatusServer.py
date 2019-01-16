@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import flask
 import flask_restful
-
+import json
 
 class GuiStatusServer(flask_restful.Resource):
     def __init__(self, **kwargs):
@@ -9,7 +9,13 @@ class GuiStatusServer(flask_restful.Resource):
         self.counter = 0
 
     def post(self):
-        json_data = flask.request.json
+        # TODO: this is funky, sometimes flask.request.json is string,
+        # sometimes note. Most likely due to some content-type headers?
+        try:
+            json_data = json.loads(flask.request.json)
+        except:
+            json_data = flask.request.json
+
         if 'status_text' in json_data:
             self.ui.status_text.set(json_data['status_text'])
         if 'keyword_text' in json_data:
@@ -26,6 +32,8 @@ class GuiStatusServer(flask_restful.Resource):
                 self.ui.master.quit()
             if json_data["action"] == "reset":
                 self.ui.clear_text()
+            if json_data["action"] == "step":
+                self.ui.pb.step()
 
         return {'status': 'ok'}
 

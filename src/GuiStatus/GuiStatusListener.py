@@ -1,15 +1,14 @@
 from requests import post
 import json
-from pprint import pprint
 ROBOT_LISTENER_API_VERSION = 2
 
-class StatusListener(object):
+class GuiStatusListener(object):
     ROBOT_LISTENER_API_VERSION = 2
 
     def _POST(self, payload):
         res = post(self.endpoint, json=json.dumps(payload))
 
-    def __init__(self, endpoint="http://127.0.0.1:31337/"):
+    def __init__(self, endpoint="http://127.0.0.1:31337"):
         self.endpoint = endpoint
 
     def start_suite(self, name, attrs):
@@ -35,8 +34,3 @@ class StatusListener(object):
 
     def close(self):
         pass
-
-
-if __name__ == '__main__':
-    st = StatusListener()
-    st.start_suite("foo", None)

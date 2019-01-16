@@ -66,6 +66,10 @@ class GuiStatusKeywords(DynamicRobotApiClass):
                 sleep(0.5)
                 s.close()
 
+    @keyword
+    def status_ui_action(self, action):
+        field = "action"
+        ret = requests.post(self.host, json={field: action})
 
     @keyword
     def status_ui_log(self, message, endpoint="status"):
