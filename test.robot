@@ -9,5 +9,6 @@ Start And Stop
   FOR   ${tick}   IN RANGE  100
       Status UI Log   Processing ${tick}/100
       Status UI Action  step
+      Log   This is Log entry #${tick}
   END
   Sleep   5 seconds

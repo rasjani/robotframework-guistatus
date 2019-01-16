@@ -7,7 +7,7 @@ pip install -r requirements.txt
 
 ## Demo
 
-robot test.robot
+robot --pythonpath src/GuiStatus --listener GuiStatusListener test.robot
 
 ## Additional information
 
