@@ -67,6 +67,10 @@ class GuiStatusKeywords(DynamicRobotApiClass):
                 s.close()
 
     @keyword
+    def status_ui_progressbar(self, steps):
+        ret = requests.post(self.host, json={"action": "progressbar", "payload": int(steps)})
+
+    @keyword
     def status_ui_action(self, action):
         field = "action"
         ret = requests.post(self.host, json={field: action})

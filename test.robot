@@ -6,9 +6,10 @@ Suite Teardown  Stop Status UI
 *** Test Cases ***
 Start And Stop
   Status UI Log   Hello World
-  FOR   ${tick}   IN RANGE  100
-      Status UI Log   Processing ${tick}/100
+  ${count}=   Set Variable    50
+  Status UI Progressbar   ${count}
+  FOR   ${tick}   IN RANGE    ${count}
+      Status UI Log   Processing ${tick}/${count}
       Status UI Action  step
       Log   This is Log entry #${tick}
   END
-  Sleep   5 seconds
