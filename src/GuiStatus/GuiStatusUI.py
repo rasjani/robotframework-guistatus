@@ -25,7 +25,8 @@ class GuiStatusUI(tk.Frame):
         self.master.after_idle(self.master.attributes, '-topmost', False)
 
     def clear_text(self):
-        self.pb.grid_forget()
+        if self.pb is not None:
+            self.pb.grid_forget()
         for t in [self.suite_text, self.status_text]:
             t.set("")
 
