@@ -20,8 +20,8 @@ class GuiStatusUI(Tk.Frame):
 
     def bring_to_front(self):
         self.master.lift()
-        self.master.attributes('-topmost', True)
-        self.master.after_idle(self.master.attributes, '-topmost', False)
+        self.master.attributes("-topmost", True)
+        self.master.after_idle(self.master.attributes, "-topmost", False)
 
     def clear_text(self):
         if self.pb is not None:
@@ -50,15 +50,15 @@ class GuiStatusUI(Tk.Frame):
             text_label.grid(row=idx, column=2, columnspan=2)
             pblen = text_label.winfo_width()
 
-        self.sb = Ttk.Progressbar(self, orient='horizontal', mode='indeterminate', maximum=100)
+        self.sb = Ttk.Progressbar(self, orient="horizontal", mode="indeterminate", maximum=100)
         self.sb.pack(expand=True, fill=Tk.BOTH, side=Tk.TOP)
-        self.sb.grid(row=2, column=2, columnspan=2, sticky='EW')
+        self.sb.grid(row=2, column=2, columnspan=2, sticky="EW")
         self.clear_text()
 
     def add_progressbar(self, steps):
         if self.pb is not None:
             self.pb.grid_forget()
 
-        self.pb = Ttk.Progressbar(self, orient='horizontal', mode='determinate', maximum=steps)
+        self.pb = Ttk.Progressbar(self, orient="horizontal", mode="determinate", maximum=steps)
         self.pb.pack(expand=True, fill=Tk.BOTH, side=Tk.TOP)
-        self.pb.grid(row=3, column=2, columnspan=2, sticky='EW')
+        self.pb.grid(row=3, column=2, columnspan=2, sticky="EW")
