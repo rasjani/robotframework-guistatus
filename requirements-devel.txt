@@ -1,2 +1,14 @@
+twine
 flake8
+flake8-formatter-junit-xml
+flake8-self; python_version > '3.0'
+flake8-eradicate; python_version > '3.0'
+flake8-alfred; python_version > '3.0'
+flake8-tabs; python_version > '3.0'
+flake8-builtins
+flake8-commas
+black
+pylint>=2.3.0; python_version >= '3.4'
+pylint_junit; python_version >= '3.4'
+python-language-server[all]
 -r requirements.txt
