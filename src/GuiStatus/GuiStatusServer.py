@@ -3,6 +3,7 @@ import flask
 import flask_restful
 import json
 
+
 class GuiStatusServer(flask_restful.Resource):
     def __init__(self, **kwargs):
         self.ui = kwargs['ui']
@@ -10,10 +11,10 @@ class GuiStatusServer(flask_restful.Resource):
 
     def post(self):
         # TODO: this is funky, sometimes flask.request.json is string,
-        # sometimes note. Most likely due to some content-type headers?
+        # sometimes not. Most likely due to some content-type headers?
         try:
             json_data = json.loads(flask.request.json)
-        except:
+        except:  # noqa: E722
             json_data = flask.request.json
 
         self.ui.sb.step()

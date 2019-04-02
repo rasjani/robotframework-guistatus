@@ -1,4 +1,6 @@
 VERSION = "0.0.1"
 
-if __name__ == '__main__':
-    print(str(VERSION))
+
+def get_version():
+    """Returns the current version."""
+    return VERSION

@@ -7,13 +7,7 @@ with open(os.path.join("src", "GuiStatus", "version.py")) as f:
 
 requirements = []
 with open("requirements.txt", "r") as f:
-    requirements = list(filter(lambda s: s!="", f.read().split("\n")))
-
-
-def __path(filename):
-    return os.path.join(os.path.dirname(__file__),
-                        filename)
-
+    requirements = list(filter(lambda s: s != "", f.read().split("\n")))
 
 version = "{}".format(version_data["VERSION"])
 

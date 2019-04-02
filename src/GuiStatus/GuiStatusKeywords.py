@@ -1,5 +1,4 @@
 from salabsutils import DynamicRobotApiClass
-from robot.api import logger
 from robot.api.deco import keyword
 import sys
 import os
@@ -30,7 +29,7 @@ class GuiStatusKeywords(DynamicRobotApiClass):
             self.status_ui_process.terminate()
             self.status_ui_process = None
 
-    def _wait_for_status_endpoint(self, timeout=60, retries = 5):
+    def _wait_for_status_endpoint(self, timeout=60, retries=5):
         # TODO: This is shit, rewrite
         url_data = furl(self.host)
         s = socket.socket()
@@ -50,10 +49,10 @@ class GuiStatusKeywords(DynamicRobotApiClass):
                         s.settimeout(next_timeout)
 
                 s.connect((url_data.host, url_data.port))
-            except socket.timeout as err:
+            except socket.timeout:
                 if timeout:
                     return False
-            except ConnectionRefusedError as err:
+            except ConnectionRefusedError:
                 pass
             except socket.error as err:
                 if type(err.args) != tuple or err[0] != errno.ETIMEDOUT:
@@ -68,14 +67,14 @@ class GuiStatusKeywords(DynamicRobotApiClass):
 
     @keyword
     def status_ui_progressbar(self, steps):
-        ret = requests.post(self.host, json={"action": "progressbar", "payload": int(steps)})
+        return requests.post(self.host, json={"action": "progressbar", "payload": int(steps)})
 
     @keyword
     def status_ui_action(self, action):
         field = "action"
-        ret = requests.post(self.host, json={field: action})
+        return requests.post(self.host, json={field: action})
 
     @keyword
     def status_ui_log(self, message, endpoint="status"):
         field = f"{endpoint}_text"
-        ret = requests.post(self.host, json={field: message})
+        return requests.post(self.host, json={field: message})
