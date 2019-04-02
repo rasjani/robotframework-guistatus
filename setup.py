@@ -14,8 +14,8 @@ version = "{}".format(version_data["VERSION"])
 setup(name="robotframework-guistatus",
       version=version,
       description="Simple UI to show the status of currently running robot",
-      author="SALabs",
-      author_email="to.be.added@noexist89a887.org",
+      author="Jani Mikkonen",
+      author_email="jani.mikkonen@siili.com",
       url="https://github.com/Omenia/robotframework-guistatus",
       install_requires=requirements,
       scripts=['src/GuiStatus/GuiStatusApplication'],
@@ -26,5 +26,5 @@ setup(name="robotframework-guistatus",
                    "Programming Language :: Python :: 3",
                    "Programming Language :: Python :: 3.5",
                    "Programming Language :: Python :: 3.6",
-                   "Programming Language :: Python :: 3.7"],
-      )
+                   "Programming Language :: Python :: 3.7"])
+
